@@ -1,5 +1,7 @@
 # Pipeline e-commerce batch sur Google Cloud
 
+[![Offline checks](https://github.com/MididouNueve/gcp-ecommerce-batch-pipeline/actions/workflows/checks.yml/badge.svg)](https://github.com/MididouNueve/gcp-ecommerce-batch-pipeline/actions/workflows/checks.yml)
+
 Un projet de data engineering qui simule une activité e-commerce dans PostgreSQL, extrait les changements et les consolide dans BigQuery avec un DAG Airflow quotidien.
 
 **Statut : version de portfolio issue d'une récupération documentée.** Le DAG est conservé à l'identique. Les schémas SQL proviennent de transcriptions vérifiées sur captures. La configuration d'exemple, les tests et cette documentation ont été ajoutés pour la publication. Une nouvelle exécution complète dans le cloud reste à réaliser.
@@ -68,7 +70,7 @@ bash -n config/env.example.sh
 python scripts/render_sql.py sql/bigquery/001_raw_tables.sql --project demo-ecommerce-project
 ```
 
-Les tests exécutent les fonctions métier isolées avec des connexions simulées. Ils ne valident ni l'import réel du DAG dans Airflow, ni les dialectes SQL sur les serveurs, ni le comportement de BigQuery. Le workflow GitHub Actions reprend ces vérifications ; son résultat distant sera connu après publication.
+Les tests exécutent les fonctions métier isolées avec des connexions simulées. Ils ne valident ni l'import réel du DAG dans Airflow, ni les dialectes SQL sur les serveurs, ni le comportement de BigQuery. Le workflow GitHub Actions reprend ces vérifications ; ses [résultats sont consultables ici](https://github.com/MididouNueve/gcp-ecommerce-batch-pipeline/actions/workflows/checks.yml).
 
 Pour préparer le cloud, suivre le [guide de mise en route](docs/setup.md). Aucun script de ce dépôt ne provisionne automatiquement Cloud SQL ou Composer.
 

@@ -24,4 +24,4 @@ La recherche de secrets porte sur les identifiants connus du projet original, le
 - Tests complets du pipeline, des retries et des replays dans le cloud.
 - Exécution des nouveaux contrôles de qualité après le backfill.
 
-Le workflow GitHub Actions est configuré pour Python 3.11 et n'a pas été exécuté sur GitHub au moment de la préparation. Les résultats historiques du cloud sont documentés séparément dans `results.md`.
+Le workflow GitHub Actions a également réussi sous Python 3.11 le 22 octobre 2026 pour le commit `77cfce0b7494f497809d36f83fddd660e59ab567` : [exécution n° 1](https://github.com/MididouNueve/gcp-ecommerce-batch-pipeline/actions/runs/39828538269). Les étapes de syntaxe, tests isolés et rendu SQL sont toutes réussies. Il s'agit toujours de contrôles hors ligne, sans connexion aux bases. Les résultats historiques du cloud sont documentés séparément dans `results.md`.
