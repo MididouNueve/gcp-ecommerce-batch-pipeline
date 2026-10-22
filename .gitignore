@@ -1,0 +1,37 @@
+# Configuration et identifiants locaux
+.env
+.env.*
+!.env.example
+config/*.sh
+!config/*.example.sh
+*credentials*.json
+*service-account*.json
+*service_account*.json
+*.pem
+*.key
+.gcloud/
+.config/gcloud/
+
+# Données, preuves originales et sorties locales
+outputs/
+work/
+build/
+data/
+logs/
+*.log
+*.zip
+*.png
+*.jpg
+*.jpeg
+*.db
+*.sqlite*
+airflow.cfg
+webserver_config.py
+
+# Python et système
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store

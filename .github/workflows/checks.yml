@@ -1,0 +1,21 @@
+name: Offline checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax and isolated logic tests (no Airflow or cloud access)
+        run: |
+          python -m compileall -q dags scripts tests
+          python -m unittest discover -s tests -v
+          bash -n config/env.example.sh
+      - name: Render BigQuery SQL with a fictitious project
+        run: |
+          python scripts/render_sql.py sql/bigquery/001_raw_tables.sql --project demo-ecommerce-project > /tmp/raw.sql
+          python scripts/render_sql.py sql/bigquery/002_quality_checks.sql --project demo-ecommerce-project > /tmp/quality.sql
